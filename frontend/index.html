@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacific DevOps Music Fest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Pacific DevOps Music Fest 2026</h1>
+        <p class="date">Fecha del Evento: 15 de Noviembre de 2026</p>
+    </header>
+
+    <main>
+        <section class="lineup">
+            <h2>Lista de Artistas</h2>
+            <ul id="artist-list">
+                <li>Cargando artistas desde la API DevOps...</li>
+            </ul>
+        </section>
+
+        <section class="tickets">
+            <button class="btn-tickets" onclick="alert('¡Redireccionando a la pasarela de pagos!')">Comprar Tickets</button>
+        </section>
+    </main>
+
+    <script>
+        // Consumir la API del backend de Flask de manera dinámica
+        fetch('http://localhost:5000/api/artists')
+            .then(response => response.json())
+            .then(data => {
+                const list = document.getElementById('artist-list');
+                list.innerHTML = '';
+                data.forEach(artist => {
+                    const li = document.createElement('li');
+                    li.textContent = artist;
+                    list.appendChild(li);
+                });
+            })
+            .catch(err => {
+                console.error("Error al conectar con la API:", err);
+                const list = document.getElementById('artist-list');
+                list.innerHTML = '<li>Error al cargar artistas (Verifica el Backend/Base de Datos)</li>';
+            });
+    </script>
+</body>
+</html>

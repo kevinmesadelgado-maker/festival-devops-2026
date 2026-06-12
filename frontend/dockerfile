@@ -1,0 +1,9 @@
+# Usar la imagen oficial de Nginx ligera
+FROM nginx:alpine
+
+# Copiar los archivos estáticos al directorio que sirve Nginx
+COPY index.html /usr/share/nginx/html/
+COPY style.css /usr/share/nginx/html/
+
+# Exponer el puerto estándar de HTTP
+EXPOSE 80
