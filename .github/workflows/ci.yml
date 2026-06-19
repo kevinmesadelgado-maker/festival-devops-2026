@@ -1,11 +1,26 @@
-- name: Validar index.html
-  run: test -f frontend/index.html
+name: Validacion Proyecto
 
-- name: Validar style.css
-  run: test -f frontend/css/style.css
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
-- name: Validar script.js
-  run: test -f frontend/js/script.js
+jobs:
+  validar:
+    runs-on: ubuntu-latest
 
-- name: Validar README.md
-  run: test -f README.md
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validar index.html
+        run: test -f frontend/index.html
+
+      - name: Validar style.css
+        run: test -f frontend/css/style.css
+
+      - name: Validar script.js
+        run: test -f frontend/js/script.js
+
+      - name: Validar README.md
+        run: test -f README.md
