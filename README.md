@@ -1,4 +1,7 @@
-# Festival DevOps Music Fest
+
+# FESTIVAL-DEVOPS-2026
+
+[![Validacion Proyecto](https://github.com/kevinmesadelgado-maker/festival-devops-2026/actions/workflows/ci.yml/badge.svg)](https://github.com/kevinmesadelgado-maker/festival-devops-2026/actions/workflows/ci.yml)
 
 ## Descripción
 
